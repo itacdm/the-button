@@ -91,5 +91,5 @@ jobs:
           docker tag the-button:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/the-button:${SHORT_SHA}
           docker tag the-button:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/the-button:latest
           # Publikuj obraz
-          docker push ${{ secrets.DOCKER_USERNAME }}m/the-button:${SHORT_SHA}
+          docker push ${{ secrets.DOCKER_USERNAME }}/the-button:${SHORT_SHA}
           docker push ${{ secrets.DOCKER_USERNAME }}/the-button:latest
