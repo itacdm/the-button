@@ -86,7 +86,7 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           # Użyj tylko skróconego SHA jako tagu
-          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-15)
           # Taguj obraz
           docker tag the-button:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/the-button:${SHORT_SHA}
           docker tag the-button:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/the-button:latest
