@@ -88,10 +88,10 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         if: always()  # Wykonaj nawet jeśli poprzednie kroki się nie powiodły
         with:
-          sarif_file: 'trivy-results.sarif'     
-       - name: Test Docker image
-         run: |
-           docker run --name test-container -d -p 8000:8000 the-button:${{ github.sha }}
+          sarif_file: 'trivy-results.sarif'
+      - name: Test Docker image
+        run: |
+          docker run --name test-container -d -p 8000:8000 the-button:${{ github.sha }}
           # Próbujemy połączyć się z aplikacją 10 razy, co sekundę
           for i in {1..10}; do
             if curl -s http://localhost:8000/ | grep -q "Ping"; then
